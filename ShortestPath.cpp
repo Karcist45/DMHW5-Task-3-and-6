@@ -36,25 +36,18 @@ int main() {
         p[y - 'a'][x - 'a'] = y - 'a';
     }
 
-    for (int k = 0; k < n; ++k) {
+    for (int k = 0; k < n; ++k)
         for (int i = 0; i < n; ++i)
             for (int j = 0; j < n; ++j) {
                 if (a[i][j] > a[i][k] + a[k][j]) {
-                    a[i][j] = a[i][k] + a[k][j];
+                    a[i][j] = a[i][k] + a[k][j];//Алгоритм Флойда
                     p[i][j] = k;
                 }
             }
-        for(int i = 0; i < n; ++i){
-            for(int j = 0; j < n; ++j){
-                cout << setw(3) << a[i][j] << " ";
-            }
-            cout << endl;
-        }
-    }
     cout << "Shortest paths matrix:\n";
     for(int i = 0; i < n; ++i){
         for(int j = 0; j < n; ++j){
-            cout << setw(3) << a[i][j] << " ";
+            cout << setw(3) << a[i][j] << " ";//вывод матрицы кратчайших расстояний
         }
         cout << endl;
     }
@@ -63,7 +56,7 @@ int main() {
     reverse(ans.begin(), ans.end());
     cout << "Shortest path is: ";
     for(auto c: ans){
-        cout << c << " ";
+        cout << c << " ";//вывод пути от первой до последней вершины
     }
     return 0;
 }
